@@ -4,12 +4,13 @@ namespace App\View\Users;
 
 class Form extends \App\View\Main {
     public function content (array $data = []) {
+        $isNew = !isset($data['data']['id']);
         ?>
         <div class="row">
             <div class="col-lg-12">
                 <div class="block">
                     <div class="block-content block-content-narrow">
-                        <form class="form-horizontal push-10-t" action="/users/add" method="post">
+                        <form class="form-horizontal push-10-t" action="<?= $isNew ? '/users/add' : '/users/update?id=' . $data['data']['id'] ?>" method="post">
                             <div class="form-group <?= isset($data['messages']['email']) ? 'has-error' : '' ?>">
                                 <div class="col-sm-9">
                                     <div class="form-material">
@@ -70,7 +71,7 @@ class Form extends \App\View\Main {
                             </div>
                             <div class="form-group">
                                 <div class="col-sm-9">
-                                    <button class="btn btn-sm btn-primary" type="submit">Создать</button>
+                                    <button class="btn btn-sm btn-primary" type="submit"><?= $isNew ? 'Создать' : 'Сохранить' ?></button>
                                 </div>
                             </div>
                         </form>

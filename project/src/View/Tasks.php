@@ -2,7 +2,7 @@
 
 namespace App\View;
 
-class Users extends Main {
+class Tasks extends Main {
     public function content(array $data)
     {
         ?>
@@ -11,7 +11,7 @@ class Users extends Main {
                 <div class="block">
                     <div class="block-content">
                         <div class="pull-right">
-                            <a class="btn btn-info push-10" href="/users/add"><i class="fa fa-pencil"></i></a>
+                            <a class="btn btn-info push-10" href="/tasks/add"><i class="fa fa-pencil"></i></a>
                         </div>
                         <?= $this->table($this->getColumns(), $data['data']); ?>
                     </div>
@@ -28,18 +28,28 @@ class Users extends Main {
                 'class' => 'text-center',
                 'style' => 'width: 50px'
             ],
-            'email' => [
-                'label' => 'Email пользователя',
+            'login' => [
+                'label' => 'Аккаунт',
                 'class' => '',
                 'style' => ''
             ],
-            'name' => [
-                'label' => 'Имя пользователя',
+            'title' => [
+                'label' => 'Название',
                 'class' => '',
                 'style' => ''
             ],
-            'privilege' => [
-                'label' => 'Привилегия',
+            'description' => [
+                'label' => 'Описание',
+                'class' => '',
+                'style' => ''
+            ],
+            'date_plan' => [
+                'label' => 'Дата публикации',
+                'class' => '',
+                'style' => ''
+            ],
+            'date_create' => [
+                'label' => 'Дата создание',
                 'class' => '',
                 'style' => ''
             ],
@@ -50,11 +60,11 @@ class Users extends Main {
                 'buttons' => [
                     'update' => [
                         'icon' => 'fa fa-pencil',
-                        'url' => '/users/update'
+                        'url' => '/tasks/update'
                     ],
                     'delete' => [
                         'icon' => 'fa fa-trash',
-                        'url' => '/users/delete'
+                        'url' => '/tasks/delete'
                     ]
                 ]
             ]

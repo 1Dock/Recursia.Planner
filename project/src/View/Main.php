@@ -190,7 +190,17 @@ class Main extends Base {
                 <?php foreach ($data as $row): ?>
                     <tr>
                         <?php foreach ($columns as $column => $options): ?>
-                            <td class="<?= $options['class'] ?>"><?= $row[$column] ?></td>
+                            <?php if ($column !== 'table-action'): ?>
+                                <td class="<?= $options['class'] ?>"><?= $row[$column] ?></td>
+                            <?php else: ?>
+                                <td class="<?= $options['class'] ?>">
+                                    <div class="btn-group" role="group">
+                                        <?php foreach ($options['buttons'] as $button): ?>
+                                        <a class="btn btn-default" href="<?= $button['url'] . '?id=' . $row['id']?>"><i class="<?= $button['icon'] ?>"></i></a>
+                                        <?php endforeach; ?>
+                                    </div>
+                                </td>
+                            <?php endif; ?>
                         <?php endforeach; ?>
                     </tr>
                 <?php endforeach; ?>

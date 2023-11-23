@@ -19,6 +19,10 @@ abstract class Base {
 
                 <link rel="shortcut icon" href="/assets/img/favicons/favicon.png">
 
+                <link rel="stylesheet" href="/assets/js/plugins/bootstrap-datepicker/bootstrap-datepicker3.min.css">
+                <link rel="stylesheet" href="/assets/js/plugins/bootstrap-datetimepicker/bootstrap-datetimepicker.min.css">
+                <link rel="stylesheet" href="/assets/js/plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css">
+
                 <link rel="icon" type="image/png" href="/assets/img/favicons/favicon-16x16.png" sizes="16x16">
                 <link rel="icon" type="image/png" href="/assets/img/favicons/favicon-32x32.png" sizes="32x32">
                 <link rel="icon" type="image/png" href="/assets/img/favicons/favicon-96x96.png" sizes="96x96">
@@ -53,6 +57,12 @@ abstract class Base {
             <script src="/assets/js/core/jquery.placeholder.min.js"></script>
             <script src="/assets/js/core/js.cookie.min.js"></script>
             <script src="/assets/js/app.js"></script>
+
+            <script src="/assets/js/plugins/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
+            <script src="/assets/js/plugins/bootstrap-datetimepicker/moment.min.js"></script>
+            <script src="/assets/js/plugins/bootstrap-datetimepicker/bootstrap-datetimepicker.min.js"></script>
+
+            <script>jQuery(function () {App.initHelpers(['datepicker', 'datetimepicker']);});</script>
             </body>
         </html>
         <?php

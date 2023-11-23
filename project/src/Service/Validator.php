@@ -2,11 +2,13 @@
 
 namespace App\Service;
 
-class Validator {
+class Validator
+{
     private $rules = [];
     private $messages = [];
 
-    public function setRule (string $name, callable $check, $message = null) {
+    public function setRule(string $name, callable $check, $message = null)
+    {
         if (!isset($this->rules[$name])) {
             $this->rules[$name] = [];
         }
@@ -19,7 +21,8 @@ class Validator {
         return $this;
     }
 
-    public function check (array $data) {
+    public function check(array $data)
+    {
         $this->messages = [];
 
         foreach ($this->rules as $name => $validators) {

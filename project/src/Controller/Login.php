@@ -2,12 +2,14 @@
 
 namespace App\Controller;
 
-class Login {
-    public function run () {
+class Login
+{
+    public function run()
+    {
         $message = null;
+
         if (isset($_POST['email'], $_POST['pass'])) {
             $pdo = \App\Service\DB::get();
-
             $stmt = $pdo->prepare("
                 SELECT
                     *
@@ -16,13 +18,15 @@ class Login {
                 WHERE
                     `email` = :email AND `pass` = :pass
             ");
-            $result = $stmt->execute([
+
+            $stmt->execute([
                 ':email' => $_POST['email'],
                 ':pass' => sha1($_POST['pass'])
             ]);
 
             if ($user = $stmt->fetch()) {
                 $_SESSION['auth'] = $user;
+
                 header('Location: /');
                 return;
             } else {
@@ -37,7 +41,8 @@ class Login {
         ]);
     }
 
-    public function runLogout () {
+    public function runLogout()
+    {
         unset($_SESSION['auth']);
         header('Location: /');
     }

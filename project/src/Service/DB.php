@@ -2,10 +2,12 @@
 
 namespace App\Service;
 
-class DB {
+class DB
+{
     private static $pdo = null;
 
-    public static function get () {
+    public static function get()
+    {
         if (is_null(self::$pdo)) {
             $host = '127.0.0.1';
             $db = 'rs_project_planner';

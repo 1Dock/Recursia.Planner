@@ -22,7 +22,44 @@ $dispatcher = FastRoute\simpleDispatcher(function(FastRoute\RouteCollector $r) {
         $controller = new App\Controller\Login();
         $controller->runLogout();
     });
-    # - Controller users
+
+    # - Tasks routes;
+    $r->addRoute('GET', '/tasks', function () {
+        $controller = new App\Controller\Tasks();
+        $controller->run();
+    });
+    $r->addRoute(['GET', 'POST'], '/tasks/add', function () {
+        $controller = new App\Controller\Tasks();
+        $controller->runAdd();
+    });
+    $r->addRoute(['GET', 'POST'], '/tasks/update', function () {
+        $controller = new App\Controller\Tasks();
+        $controller->runUpdate();
+    });
+    $r->addRoute(['GET', 'POST'], '/tasks/delete', function () {
+        $controller = new App\Controller\Tasks();
+        $controller->runDelete();
+    });
+
+    # - Accounts routes;
+    $r->addRoute('GET', '/accounts', function () {
+        $controller = new App\Controller\Accounts();
+        $controller->run();
+    });
+    $r->addRoute(['GET', 'POST'], '/accounts/add', function () {
+        $controller = new App\Controller\Accounts();
+        $controller->runAdd();
+    });
+    $r->addRoute(['GET', 'POST'], '/accounts/update', function () {
+        $controller = new App\Controller\Accounts();
+        $controller->runUpdate();
+    });
+    $r->addRoute(['GET', 'POST'], '/accounts/delete', function () {
+        $controller = new App\Controller\Accounts();
+        $controller->runDelete();
+    });
+
+    # - Users routes;
     if (isset($_SESSION['auth']) && (int)$_SESSION['auth']['privilege'] == 1) {
         $r->addRoute('GET', '/users', function () {
             $controller = new App\Controller\Users();
@@ -31,6 +68,14 @@ $dispatcher = FastRoute\simpleDispatcher(function(FastRoute\RouteCollector $r) {
         $r->addRoute(['GET', 'POST'], '/users/add', function () {
             $controller = new App\Controller\Users();
             $controller->runAdd();
+        });
+        $r->addRoute(['GET', 'POST'], '/users/update', function () {
+            $controller = new App\Controller\Users();
+            $controller->runUpdate();
+        });
+        $r->addRoute(['GET', 'POST'], '/users/delete', function () {
+            $controller = new App\Controller\Users();
+            $controller->runDelete();
         });
     }
 });

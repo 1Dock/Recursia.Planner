@@ -2,7 +2,7 @@
 
 namespace App\View;
 
-class Users extends Main {
+class Accounts extends Main {
     public function content(array $data)
     {
         ?>
@@ -11,7 +11,7 @@ class Users extends Main {
                 <div class="block">
                     <div class="block-content">
                         <div class="pull-right">
-                            <a class="btn btn-info push-10" href="/users/add"><i class="fa fa-pencil"></i></a>
+                            <a class="btn btn-info push-10" href="/accounts/add"><i class="fa fa-pencil"></i></a>
                         </div>
                         <?= $this->table($this->getColumns(), $data['data']); ?>
                     </div>
@@ -28,18 +28,8 @@ class Users extends Main {
                 'class' => 'text-center',
                 'style' => 'width: 50px'
             ],
-            'email' => [
-                'label' => 'Email пользователя',
-                'class' => '',
-                'style' => ''
-            ],
-            'name' => [
-                'label' => 'Имя пользователя',
-                'class' => '',
-                'style' => ''
-            ],
-            'privilege' => [
-                'label' => 'Привилегия',
+            'login' => [
+                'label' => 'Логин',
                 'class' => '',
                 'style' => ''
             ],
@@ -50,11 +40,11 @@ class Users extends Main {
                 'buttons' => [
                     'update' => [
                         'icon' => 'fa fa-pencil',
-                        'url' => '/users/update'
+                        'url' => '/accounts/update'
                     ],
                     'delete' => [
                         'icon' => 'fa fa-trash',
-                        'url' => '/users/delete'
+                        'url' => '/accounts/delete'
                     ]
                 ]
             ]
